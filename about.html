@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="utf-8">
+<title>GREEN CAFE — About</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+function nav(p){ location.href = p; }
+function pulse(id){ const el=document.getElementById(id); if(!el) return; let up=true; setInterval(()=>{ el.style.transform = up ? 'scale(1.02)' : 'scale(1)'; up=!up; },900); }
+window.onload = function(){ pulse('mission'); pulse('team'); };
+</script>
+</head>
+<body bgcolor="#f6fff6" style="font-family:Tahoma, Arial, sans-serif; margin:0;">
+
+<!-- Header -->
+<center>
+<table width="100%" cellpadding="14" bgcolor="#dbffe1" style="position:sticky;top:0;z-index:999;">
+  <tr>
+    <td align="left" style="padding-left:22px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <svg width="36" height="36"><path d="M19 2 C10 8,5 15,7 23 C9 31,16 35,23 32 C30 28,34 20,32 13 C30 6,24 2,19 2 Z" fill="#16a34a" stroke="#0f7a32"/></svg>
+        <div style="font-size:28px;font-weight:700;color:#0b6f0b;">GREEN CAFE</div>
+      </div>
+    </td>
+    <td align="right" style="padding-right:22px;">
+      <button onclick="nav('index.html')" style="padding:8px 12px;border-radius:10px;margin:6px;">Home</button>
+      <button onclick="nav('menu.html')" style="padding:8px 12px;border-radius:10px;margin:6px;">Menu</button>
+      <button onclick="nav('order.html')" style="padding:8px 12px;border-radius:10px;margin:6px;">Order</button>
+      <button onclick="nav('contact.html')" style="padding:8px 12px;border-radius:10px;margin:6px;box-shadow:0 0 12px #7aff9c;">Contact</button>
+    </td>
+  </tr>
+</table>
+</center>
+
+<center style="margin-top:18px;">
+  <h1 style="color:#0b6f0b;font-size:38px;">About Green Cafe</h1>
+  <p style="color:#064f06;max-width:900px;">Green Cafe ek family restaurant hai jahan hum fresh ingredients aur pyar se banaya hua khana serve karte hain. Hamari team quality aur service par yaqeen rakhti hai.</p>
+</center>
+
+<!-- Mission & Team -->
+<center>
+  <div style="max-width:1100px;margin-top:20px;display:flex;gap:18px;flex-wrap:wrap;justify-content:center;">
+    <div id="mission" style="flex:1;min-width:280px;background:#fff;padding:14px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.04);">
+      <h3 style="color:#0b6f0b;">Our Mission</h3>
+      <p style="color:#064f06;">Serve delicious food thoughtfully prepared and keep sustainable choices in packaging and sourcing.</p>
+      <ul style="color:#064f06;">
+        <li>Fresh produce</li>
+        <li>Local sourcing</li>
+        <li>Eco-friendly packaging</li>
+      </ul>
+    </div>
+
+    <div id="team" style="flex:1;min-width:280px;background:#fff;padding:14px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.04);">
+      <h3 style="color:#0b6f0b;">Our Team</h3>
+      <p style="color:#064f06;">Talented chefs, friendly staff and quick delivery partners working together.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;">
+        <div style="background:#f0fff6;padding:8px;border-radius:8px;"></div>
+        <div style="background:#f0fff6;padding:8px;border-radius:8px;"></div>
+        <div style="background:#f0fff6;padding:8px;border-radius:8px;">Delivery Team</div>
+      </div>
+    </div>
+  </div>
+</center>
+
+<!-- Timeline -->
+<center style="margin-top:24px;">
+  <div style="max-width:1000px;background:#fbfff8;padding:16px;border-radius:10px;">
+    <h3 style="color:#0b6f0b;">Our Journey</h3>
+  </div>
+</center>
+
+<!-- Press & Media -->
+<center style="margin-top:22px;">
+  <div style="max-width:1000px;background:#fff;padding:14px;border-radius:10px;">
+    <h3 style="color:#0b6f0b;">In the Press</h3>
+    <p style="color:#064f06;">Local magazines and blogs featured our family-friendly menu and sauces.</p>
+    <div style="margin-top:8px;">
+      <button onclick="nav('menu.html')" style="padding:10px 12px;border-radius:8px;">See Menu</button>
+      <button onclick="nav('order.html')" style="padding:10px 12px;border-radius:8px;margin-left:8px;background:#0ab24a;color:#fff;">Order Now</button>
+    </div>
+  </div>
+</center>
+
+<!-- Footer -->
+<center style="margin-top:28px;">
+  <div style="background:#eafef0;padding:20px;border-radius:10px;max-width:1100px;">
+    <div style="font-weight:700;color:#0b6f0b;">GREEN CAFE</div>
+    <div style="color:#064f06;margin-top:6px;">Phone: +92 93265447377</div>
+    <div style="color:#064f06;margin-top:6px;">© <script>document.write(new Date().getFullYear());</script> GREEN CAFE</div>
+  </div>
+</center>
+</body>
+</html>

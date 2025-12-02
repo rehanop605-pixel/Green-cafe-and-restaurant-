@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Green Cafe - Menu</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Simple animations -->
+<script>
+function glowButton(btn){
+  btn.style.boxShadow = "0 0 20px #7aff9c";
+}
+function removeGlow(btn){
+  btn.style.boxShadow = "none";
+}
+</script>
+
+</head>
+<body bgcolor="#e9ffe8">
+
+<!-- HEADER -->
+<center>
+<table width="100%" cellpadding="20" bgcolor="#dbffe1" style="position:sticky;top:0;z-index:999;">
+  <tr>
+    <td align="left">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <svg width="40" height="40">
+          <path d="M19 2 C10 8, 5 15, 7 23 C9 31, 16 35, 23 32 C30 28, 34 20, 32 13 C30 6, 24 2, 19 2 Z"
+            fill="#16a34a" stroke="#0f7a32" stroke-width="2"/>
+        </svg>
+        <div style="font-size:38px;font-weight:bold;color:#0b6f0b;letter-spacing:2px;">GREEN CAFE</div>
+      </div>
+    </td>
+
+    <td align="right">
+
+      <button onmouseover="glowButton(this)" onmouseout="removeGlow(this)"
+      onclick="location.href='index.html'"
+      style="font-size:22px;padding:14px 30px;border-radius:15px;margin:10px;">
+        Home
+      </button>
+
+      <button onmouseover="glowButton(this)" onmouseout="removeGlow(this)"
+      onclick="location.href='menu.html'"
+      style="font-size:22px;padding:14px 30px;border-radius:15px;margin:10px;">
+        Menu
+      </button>
+
+      <button onmouseover="glowButton(this)" onmouseout="removeGlow(this)"
+      onclick="location.href='order.html'"
+      style="font-size:22px;padding:14px 30px;border-radius:15px;margin:10px;">
+        Order
+      </button>
+
+      <button onmouseover="glowButton(this)" onmouseout="removeGlow(this)"
+      onclick="location.href='about.html'"
+      style="font-size:22px;padding:14px 30px;border-radius:15px;margin:10px;">
+        About
+      </button>
+
+      <button onmouseover="glowButton(this)" onmouseout="removeGlow(this)"
+      onclick="location.href='contact.html'"
+      style="font-size:22px;padding:14px 30px;border-radius:15px;margin:10px;">
+        Contact
+      </button>
+
+    </td>
+  </tr>
+</table>
+</center>
+
+<!-- HERO BANNER -->
+<table width="100%" height="320" background="https://i.imgur.com/2DhmtJ4.jpg" style="background-size:cover;">
+  <tr>
+    <td align="center" style="background:rgba(0,0,0,0.4);">
+      <div style="font-size:52px;color:white;font-weight:bold;letter-spacing:2px;">
+        OUR DELICIOUS MENU
+      </div>
+      <div style="font-size:22px;color:white;margin-top:10px;">
+        Fresh • Crispy • Taste That You Love
+      </div>
+    </td>
+  </tr>
+</table>
+
+<br><br>
+
+<!-- CATEGORY TITLES -->
+<center>
+<h2 style="font-size:40px;color:#0f7a32;">🍔 Burgers</h2>
+<hr width="300" color="#0f7a32">
+</center>
+
+<br>
+
+<!-- START OF FOOD GRID -->
+<table width="90%" align="center" cellpadding="20">
+  <tr>
+    
+    <!-- CARD 1 -->
+    <td width="33%" valign="top" align="center" style="background:#fff;border-radius:12px;">
+      <img src="https://images.unsplash.com/photo-1604908177522-2f0c9b8f8a1e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=7b1a6b6f6a9a4f9a7f6d2b0f1b8c4e1e" 
+           alt="Classic Burger" width="100%" style="border-top-left-radius:12px;border-top-right-radius:12px;display:block;">
+      <div style="padding:12px;text-align:left;">
+        <div style="font-size:18px;color:#0b6f0b;font-weight:700;">Classic Zinger Burger</div>
+        <div style="color:#066006;margin-top:6px;">SR 350</div>
+        <div style="color:#086006;font-size:14px;margin-top:8px;">Crispy fillet, lettuce, signature sauce, soft bun.</div>
+        <div style="margin-top:12px;text-align:center;">
+          <input id="qty101" type="number" min="1" value="1" style="width:70px;padding:6px;border-radius:6px;">
+          <button onclick="addToCart(101, document.getElementById('qty101').value)" 
+                  style="padding:8px 12px;border-radius:8px;margin-left:8px;">Add to Cart</button>
+        </div>
+        <div style="margin-top:10px;text-align:center;">
+          <button onclick="sendWhatsApp('Classic Zinger Burger',350, document.getElementById('qty101').value)" 
+                  style="padding:8px 12px;border-radius:8px;background:#0ab24a;color:#fff;border:0;">Order on WhatsApp</button>
+          <button onclick="sendEmail('Classic Zinger Burger',350, document.getElementById('qty101').value)" 
+                  style="padding:8px 12px;border-radius:8px;margin-left:8px;">Order by Email</button>
+        </div>
+      </div>
+    </td>
+
+    <!-- CARD 2 -->
+    <td width="33%" valign="top" align="center" style="background:#fff;border-radius:12px;">
+      <img src="https://images.unsplash.com/photo-1606756791594-8f9f8c3d3c9c?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=2a9c8f3e6a3f9d7c6b5a1e4c2f3b9d3b"
+           alt="Double Burger" width="100%" style="border-top-left-radius:12px;border-top-right-radius:12px;display:block;">
+      <div style="padding:12px;text-align:left;">
+        <div style="font-size:18px;color:#0b6f0b;font-weight:700;">Double Crispy Burger</div>
+        <div style="color:#066006;margin-top:6px;">SR 450</div>
+        <div style="color:#086006;font-size:14px;margin-top:8px;">Two crispy fillets, cheese, pickles and tangy mayo.</div>
+        <div style="margin-top:12px;text-align:center;">
+          <input id="qty102" type="number" min="1" value="1" style="width:70px;padding:6px;border-radius:6px;">
+          <button onclick="addToCart(102, document.getElementById('qty102').value)" style="padding:8px 12px;border-radius:8px;margin-left:8px;">Add to Cart</button>
+        </div>
+        <div style="margin-top:10px;text-align:center;">
+          <button onclick="sendWhatsApp('Double Crispy Burger',450, document.getElementById('qty102').value)" style="padding:8px 12px;border-radius:8px;background:#0ab24a;color:#fff;border:0;">Order on WhatsApp</button>
+          <button onclick="sendEmail('Double Crispy Burger',450, document.getElementById('qty102').value)" style="padding:8px 12px;border-radius:8px;margin-left:8px;">Order by Email</button>
+        </div>
+      </div>
+    </td>
+
+    <!-- CARD 3 -->
+    <td width="33%" valign="top" align="center" style="background:#fff;border-radius:12px;">
+      <img src="https://images.unsplash.com/photo-1604496050343-0f6b3f3b9a1c?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=8d6a3b2c4e5f1a9b6c7d8e9f0a1b2c3d"
+           alt="Chicken Sandwich" width="100%" style="border-top-left-radius:12px;border-top-right-radius:12px;display:block;">
+      <div style="padding:12px;text-align:left;">
+        <div style="font-size:18px;color:#0b6f0b;font-weight:700;">Fillet Sandwich</div>
+        <div style="color:#066006;margin-top:6px;">SR 300</div>
+        <div style="color:#086006;font-size:14px;margin-top:8px;">Crispy fillet, garlic spread and fresh veggies.</div>
+        <div style="margin-top:12px;text-align:center;">
+          <input id="qty103" type="number" min="1" value="1" style="width:70px;padding:6px;border-radius:6px;">
+          <button onclick="addToCart(103, document.getElementById('qty103').value)" style="padding:8px 12px;border-radius:8px;margin-left:8px;">Add to Cart</button>
+        </div>
+        <div style="margin-top:10px;text-align:center;">
+          <button onclick="sendWhatsApp('Fillet Sandwich',300, document.getElementById('qty103').value)" style="padding:8px 12px;border-radius:8px;background:#0ab24a;color:#fff;border:0;">Order on WhatsApp</button>
+          <button onclick="sendEmail('Fillet Sandwich',300, document.getElementById('qty103').value)" style="padding:8px 12px;border-radius:8px;margin-left:8px;">Order by Email</button>
+        </div>
+      </div>
+    </td>
+  </tr>
+
+  <!-- ROW 2 -->
+  <tr>
+    <!-- CARD 4 -->
+    <td valign="top" align="center" style="background:#fff;border-radius:12px;">
+      <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=4f3a2b1c6d7e8f9b0a1c2d3e4f5b6a7c"
+           alt="Fries" width="100%" style="border-top-left-radius:12px;border-top-right-radius:12px;display:block;">
+      <div style="padding:12px;text-align:left;">
+        <div style="font-size:18px;color:#0b6f0b;font-weight:700;">Mega Loaded Fries</div>
+        <div style="color:#066006;margin-top:6px;">SR 250</div>
+        <div style="color:#086006;font-size:14px;margin-top:8px;">Crispy fries topped with cheese, herbs & sauces.</div>
+        <div style="margin-top:12px;text-align:center;">
+          <input id="qty104" type="number" min="1" value="1" style="width:70px;padding:6px;border-radius:6px;">
+          <button onclick="addToCart(104, document.getElementById('qty104').value)" style="padding:8px 12px;border-radius:8px;margin-left:8px;">Add to Cart</button>
+        </div>
+        <div style="margin-top:10px;text-align:center;">
+          <button onclick="sendWhatsApp('Mega Loaded Fries',250, document.getElementById('qty104').value)" style="padding:8px 12px;border-radius:8px;background:#0ab24a;color:#fff;border:0;">Order on WhatsApp</button>
+          <button onclick="sendEmail('Mega Loaded Fries',250, document.getElementById('qty104').value)" style="padding:8px 12px;border-radius:8px;margin-left:8px;">Order by Email</button>
+        </div>
+      </div>
+    </td>
+
+    <!-- CARD 5 -->
+    <td valign="top" align="center" style="background:#fff;border-radius:12px;">
+      <img src="https://images.unsplash.com/photo-1606755962773-3b9f5a5f1e6f?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=9e8b7c6d5a4f3b2c1d0e9f8a7b6c5d4e"
+           alt="Grilled Plate" width="100%" style="border-top-left-radius:12px;border-top-right-radius:12px;display:block;">
+      <div style="padding:12px;text-align:left;">
+        <div style="font-size:18px;color:#0b6f0b;font-weight:700;">Grilled Chicken Plate</div>
+        <div style="color:#066006;margin-top:6px;">SR 750</div>
+        <div style="color:#086006;font-size:14px;margin-top:8px;">Tender grilled chicken served with salad and rice.</div>
+        <div style="margin-top:12px;text-align:center;">
+          <input id="qty105" type="number" min="1" value="1" style="width:70px;padding:6px;border-radius:6px;">
+          <button onclick="addToCart(105, document.getElementById('qty105').value)" style="padding:8px 12px;border-radius:8px;margin-left:8px;">Add to Cart</button>
+        </div>
+        <div style="margin-top:10px;text-align:center;">
+          <button onclick="sendWhatsApp('Grilled Chicken Plate',750, document.getElementById('qty105').value)" style="padding:8px 12px;border-radius:8px;background:#0ab24a;color:#fff;border:0;">Order on WhatsApp</button>
+          <button onclick="sendEmail('Grilled Chicken Plate',750, document.getElementById('qty105').value)" style="padding:8px 12px;border-radius:8px;margin-left:8px;">Order by Email</button>
+        </div>
+      </div>
+    </td>
+
+    <!-- CARD 6 -->
+    <td valign="top" align="center" style="background:#fff;border-radius:12px;">
+      <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=1c2b3a4d5e6f7a8b9c0d1e2f3a4b5c6d"
+           alt="Crispy Shrimp" width="100%" style="border-top-left-radius:12px;border-top-right-radius:12px;display:block;">
+      <div style="padding:12px;text-align:left;">
+        <div style="font-size:18px;color:#0b6f0b;font-weight:700;">Crispy Shrimp (6 pcs)</div>
+        <div style="color:#066006;margin-top:6px;">SR 480</div>
+        <div style="color:#086006;font-size:14px;margin-top:8px;">Lightly battered shrimp, perfect with tartar sauce.</div>
+        <div style="margin-top:12px;text-align:center;">
+          <input id="qty106" type="number" min="1" value="1" style="width:70px;padding:6px;border-radius:6px;">
+          <button onclick="addToCart(106, document.getElementById('qty106').value)" style="padding:8px 12px;border-radius:8px;margin-left:8px;">Add to Cart</button>
+        </div>
+        <div style="margin-top:10px;text-align:center;">
+          <button onclick="sendWhatsApp('Crispy Shrimp (6 pcs)',480, document.getElementById('qty106').value)" style="padding:8px 12px;border-radius:8px;background:#0ab24a;color:#fff;border:0;">Order on WhatsApp</button>
+          <button onclick="sendEmail('Crispy Shrimp (6 pcs)',480, document.getElementById('qty106').value)" style="padding:8px 12px;border-radius:8px;margin-left:8px;">Order by Email</button>
+        </div>
+      </div>
+    </td>
+  </tr>
+
+  <!-- ROW 3: Pizza + Drinks + Desserts -->
+  <tr>
+    <!-- CARD 7 -->
+    <td valign="top" align="center" style="background:#fff;border-radius:12px;">
+      <img src="https://images.unsplash.com/photo-1542281286-9e0a16bb7366?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d"
+           alt="Slice Pizza" width="100%" style="border-top-left-radius:12px;border-top-right-radius:12px;display:block;">
+      <div style="padding:12px;text-align:left;">
+        <div style="font-size:18px;color:#0b6f0b;font-weight:700;">Pepperoni Pizza Slice</div>
+        <div style="color:#066006;margin-top:6px;">SR 220</div>
+        <div style="color:#086006;font-size:14px;margin-top:8px;">Cheesy slice with spicy pepperoni topping.</div>
+        <div style="margin-top:12px;text-align:center;">
+          <input id="qty107" type="number" min="1" value="1" style="width:70px;padding:6px;border-radius:6px;">
+          <button onclick="addToCart(107, document.getElementById('qty107').value)" style="padding:8px 12px;border-radius:8px;margin-left:8px;">Add to Cart</button>
+        </div>
+        <div style="margin-top:10px;text-align:center;">
+          <button onclick="sendWhatsApp('Pepperoni Pizza Slice',220, document.getElementById('qty107').value)" style="padding:8px 12px;border-radius:8px;background:#0ab24a;color:#fff;border:0;">Order on WhatsApp</button>
+          <button onclick="sendEmail('Pepperoni Pizza Slice',220, document.getElementById('qty107').value)" style="padding:8px 12px;border-radius:8px;margin-left:8px;">Order by Email</button>
+        </div>
+      </div>
+    </td>
+
+    <!-- CARD 8 -->
+    <td valign="top" align="center" style="background:#fff;border-radius:12px;">
+      <img src="https://images.unsplash.com/photo-1542444459-db1f0d3b1f3f?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=6b5a4c3d2e1f0a9b8c7d6e5f4b3a2c1d"
+           alt="Cold Drink" width="100%" style="border-top-left-radius:12px;border-top-right-radius:12px;display:block;">
+      <div style="padding:12px;text-align:left;">
+        <div style="font-size:18px;color:#0b6f0b;font-weight:700;">Pepsi (Can)</div>
+        <div style="color:#066006;margin-top:6px;">SR 80</div>
+        <div style="color:#086006;font-size:14px;margin-top:8px;">Chilled soda — perfect with meals.</div>
+        <div style="margin-top:12px;text-align:center;">
+          <input id="qty108" type="number" min="1" value="1" style="width:70px;padding:6px;border-radius:6px;">
+          <button onclick="addToCart(108, document.getElementById('qty108').value)" style="padding:8px 12px;border-radius:8px;margin-left:8px;">Add to Cart</button>
+        </div>
+        <div style="margin-top:10px;text-align:center;">
+          <button onclick="sendWhatsApp('Pepsi (Can)',80, document.getElementById('qty108').value)" style="padding:8px 12px;border-radius:8px;background:#0ab24a;color:#fff;border:0;">Order on WhatsApp</button>
+          <button onclick="sendEmail('Pepsi (Can)',80, document.getElementById('qty108').value)" style="padding:8px 12px;border-radius:8px;margin-left:8px;">Order by Email</button>
+        </div>
+      </div>
+    </td>
+
+    <!-- CARD 9 -->
+    <td valign="top" align="center" style="background:#fff;border-radius:12px;">
+      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7"
+           alt="Dessert" width="100%" style="border-top-left-radius:12px;border-top-right-radius:12px;display:block;">
+      <div style="padding:12px;text-align:left;">
+        <div style="font-size:18px;color:#0b6f0b;font-weight:700;">Cream Dessert</div>
+        <div style="color:#066006;margin-top:6px;">SR 150</div>
+        <div style="color:#086006;font-size:14px;margin-top:8px;">Smooth creamy treat to finish your meal.</div>
+        <div style="margin-top:12px;text-align:center;">
+          <input id="qty109" type="number" min="1" value="1" style="width:70px;padding:6px;border-radius:6px;">
+          <button onclick="addToCart(109, document.getElementById('qty109').value)" style="padding:8px 12px;border-radius:8px;margin-left:8px;">Add to Cart</button>
+        </div>
+        <div style="margin-top:10px;text-align:center;">
+          <button onclick="sendWhatsApp('Cream Dessert',150, document.getElementById('qty109').value)" style="padding:8px 12px;border-radius:8px;background:#0ab24a;color:#fff;border:0;">Order on WhatsApp</button>
+          <button onclick="sendEmail('Cream Dessert',150, document.getElementById('qty109').value)" style="padding:8px 12px;border-radius:8px;margin-left:8px;">Order by Email</button>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<br><br>
+
+<!-- CART SUMMARY PREVIEW (will be filled by JS in PART 3) -->
+<center>
+  <div style="max-width:900px;background:#fbfff8;padding:12px;border-radius:12px;">
+    <h3 style="color:#0b6f0b;">Quick Cart Preview</h3>
+    <div id="miniCart" style="min-height:80px;color:#064f06;">
+      <!-- Filled by JS: items added from food cards -->
+      <small>Your cart is empty — add items.</small>
+    </div>
+    <div style="text-align:right;margin-top:8px;">
+      <button onclick="location.href='order.html'" style="padding:10px 14px;border-radius:8px;background:#0ab24a;color:#fff;border:0;">Go to Checkout</button>
+      <button onclick="localStorage.removeItem('gcCart'); refreshMiniCart();" style="padding:10px 14px;border-radius:8px;margin-left:8px;">Clear Cart</button>
+    </div>
+  </div>
+</center>
+
+<!-- PART 2 END — next part will include JS functions (addToCart, mini-cart render, sendWhatsApp/sendEmail implementations) and footer -->
+<!-- JAVASCRIPT SYSTEM -->
+<script>
+
+// Load Cart from LocalStorage
+function loadCart(){
+  let cart = localStorage.getItem("gcCart");
+  if(cart){ return JSON.parse(cart); }
+  return [];
+}
+
+// Save Cart
+function saveCart(cart){
+  localStorage.setItem("gcCart", JSON.stringify(cart));
+}
+
+// Add To Cart
+function addToCart(id, qty){
+
+  let cart = loadCart();
+
+  qty = parseInt(qty);
+
+  let itemName = "";
+  let price = 0;
+
+  // Menu items mapping
+  const menu = {
+    101: ["Classic Zinger Burger", 350],
+    102: ["Double Crispy Burger", 450],
+    103: ["Fillet Sandwich", 300],
+    104: ["Mega Loaded Fries", 250],
+    105: ["Grilled Chicken Plate", 750],
+    106: ["Crispy Shrimp (6 pcs)", 480],
+    107: ["Pepperoni Pizza Slice", 220],
+    108: ["Pepsi (Can)", 80],
+    109: ["Cream Dessert", 150]
+  };
+
+  if(menu[id]){
+    itemName = menu[id][0];
+    price = menu[id][1];
+  }
+
+  // Check if already in cart
+  let exists = cart.find(x => x.id === id);
+
+  if(exists){
+    exists.qty += qty;
+  } else {
+    cart.push({id:id, name:itemName, price:price, qty:qty});
+  }
+
+  saveCart(cart);
+  refreshMiniCart();
+
+  alert(itemName + " added to cart!");
+}
+
+// Refresh Mini Cart Preview
+function refreshMiniCart(){
+
+  let cart = loadCart();
+  let box = document.getElementById("miniCart");
+
+  if(cart.length === 0){
+    box.innerHTML = "<small>Your cart is empty — add items.</small>";
+    return;
+  }
+
+  let html = "";
+  let total = 0;
+
+  cart.forEach(item=>{
+    let t = item.price * item.qty;
+    total += t;
+    html += `
+      <div style='margin-bottom:6px;'>
+        <b>${item.name}</b> — ${item.qty} × SR ${item.price}  
+        <span style='float:right;color:#0f7a32;'>SR ${t}</span>
+      </div>
+    `;
+  });
+
+  html += `<hr><div style='text-align:right;font-weight:bold;color:#064f06;'>Total: SR ${total}</div>`;
+
+  box.innerHTML = html;
+}
+
+refreshMiniCart();  // INITIAL CALL
+
+// WhatsApp Order
+function sendWhatsApp(item, price, qty){
+
+  let number = "923265447377";
+
+  let total = price * qty;
+
+  let msg =
+`ORDER FROM GREEN CAFE
+----------------------
+Item: ${item}
+Quantity: ${qty}
+Price: SR ${price}
+Total: SR ${total}
+
+Thank you!`;
+
+  let url = "https://wa.me/" + number + "?text=" + encodeURIComponent(msg);
+
+  window.open(url, "_blank");
+}
+
+// Email Order
+function sendEmail(item, price, qty){
+
+  let total = price * qty;
+
+  let subject = "New Order - Green Cafe";
+  let body =
+`ORDER FROM GREEN CAFE
+----------------------
+Item: ${item}
+Quantity: ${qty}
+Price: SR ${price}
+Total: SR ${total}
+
+Thank you!`;
+
+  let mail = "mailto:greencafe.orders@gmail.com?subject=" + encodeURIComponent(subject)
+            + "&body=" + encodeURIComponent(body);
+
+  window.open(mail);
+}
+
+</script>
+
+<!-- FOOTER -->
+<br><br>
+<table width="100%" bgcolor="#dbffe1" cellpadding="20">
+  <tr>
+    <td align="center" style="color:#0f7a32;font-size:20px;">
+      © 2025 GREEN CAFE — Fresh • Healthy • Delicious
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

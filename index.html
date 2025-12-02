@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="utf-8">
+<title>GREEN CAFE — Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Inline only - no external CSS files -->
+<script>
+/* Utilities */
+function nav(p){ location.href = p; }
+function toast(msg){ const t=document.getElementById('toast'); t.innerText=msg; t.style.opacity='1'; setTimeout(()=>t.style.opacity='0',1600); }
+function openWhatsAppWith(text){
+  var url = "https://wa.me/923265447377?text=" + encodeURIComponent(text);
+  window.open(url, "_blank");
+}
+function openMail(to, subject, body){
+  window.location.href = "mailto:" + to + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+}
+
+/* Hero pulse */
+function heroPulse(){
+  const el = document.getElementById('heroTitle');
+  if(!el) return;
+  let big = true;
+  setInterval(()=>{
+    el.style.transform = big ? 'scale(1.02)' : 'scale(1)';
+    el.style.opacity = big ? '0.95' : '1';
+    big = !big;
+  }, 900);
+}
+
+/* Simple reveal on scroll */
+function reveal(){
+  const items = document.querySelectorAll('.reveal');
+  function check(){
+    items.forEach(i=>{
+      const r = i.getBoundingClientRect();
+      if(r.top < window.innerHeight - 80){
+        i.style.opacity = '1';
+        i.style.transform = 'translateY(0px)';
+      }
+    });
+  }
+  window.addEventListener('scroll', check);
+  check();
+}
+
+window.onload = function(){
+  heroPulse();
+  reveal();
+};
+</script>
+</head>
+<body bgcolor="#f3fff4" style="font-family: Tahoma, Arial, sans-serif; margin:0; padding:0;">
+
+<!-- Toast -->
+<div id="toast" style="position:fixed;left:50%;transform:translateX(-50%);bottom:22px;background:#e8fff0;padding:10px 18px;border-radius:20px;color:#045204;opacity:0;transition:opacity .3s;z-index:9999;"> </div>
+
+<!-- STICKY HEADER -->
+<center>
+<table width="100%" cellpadding="16" bgcolor="#dbffe1" style="position:sticky;top:0;z-index:9999;">
+  <tr>
+    <td align="left" style="padding-left:28px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <!-- leaf SVG -->
+        <svg width="44" height="44" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 4 C13 9,8 15,10 23 C12 33,20 40,30 36 C40 31,44 22,40 13 C36 7,29 4,22 4 Z"
+            fill="#17a34a" stroke="#0e6f33" stroke-width="1.2">
+            <animate attributeName="opacity' ' ' values='1;0.7;1' dur='3s' repeatCount='indefinite'"/>
+          </path>
+        </svg>
+        <div style="font-size:34px;font-weight:800;color:#0b6f0b;letter-spacing:2px;">GREEN CAFE</div>
+      </div>
+    </td>
+    <td align="right" style="padding-right:28px;">
+      <button onclick="nav('index.html')" style="font-size:16px;padding:10px 18px;border-radius:12px;margin:6px;border:0;background:#fff;">Home</button>
+      <button onclick="nav('menu.html')" style="font-size:16px;padding:10px 18px;border-radius:12px;margin:6px;border:0;background:#fff;">Menu</button>
+      <button onclick="nav('order.html')" style="font-size:16px;padding:10px 18px;border-radius:12px;margin:6px;border:0;background:#0ab24a;color:#fff;">Order</button>
+      <button onclick="nav('about.html')" style="font-size:16px;padding:10px 18px;border-radius:12px;margin:6px;border:0;background:#fff;">About</button>
+      <button onclick="nav('contact.html')" style="font-size:16px;padding:10px 18px;border-radius:12px;margin:6px;border:0;background:#fff;">Contact</button>
+    </td>
+  </tr>
+</table>
+</center>
+
+<!-- HERO -->
+<table width="100%" cellpadding="0" cellspacing="0" bgcolor="#eaffef">
+  <tr>
+    <td align="center" style="padding:36px 12px;">
+      <div style="max-width:1100px;margin:0 auto;text-align:center;">
+        <div id="heroTitle" style="font-size:62px;color:#0b6f0b;font-weight:900;margin-bottom:6px;">WELCOME TO GREEN CAFE</div>
+        <div style="font-size:22px;color:#076006;margin-bottom:18px;">Fresh · Crispy · Flavorful — Local favourite for family meals</div>
+
+        <div style="margin:14px 0;">
+          <input id="hsearch" placeholder="Search menu..." style="width:58%;padding:12px 14px;border-radius:12px;border:1px solid #cfeede;font-size:16px;">
+          <button onclick="var q=document.getElementById('hsearch').value; if(!q) toast('Search likh kar try karo'); else nav('menu.html?q='+encodeURIComponent(q));"
+            style="padding:12px 18px;margin-left:8px;border-radius:10px;font-size:16px;">Search</button>
+        </div>
+
+        <div style="margin-top:18px;">
+          <button onclick="nav('menu.html')" style="font-size:20px;padding:14px 36px;border-radius:18px;margin:8px;">Explore Menu</button>
+          <button onclick="nav('order.html')" style="font-size:20px;padding:14px 36px;border-radius:18px;margin:8px;background:#0ab24a;color:#fff;">Order Now 🛒</button>
+          <button onclick="openWhatsAppWith('Hello Green Cafe, I want to order:')" style="font-size:20px;padding:14px 36px;border-radius:18px;margin:8px;">Order on WhatsApp</button>
+        </div>
+
+        <div style="margin-top:18px;"><marquee scrollamount="5" style="color:#065f06;font-weight:700;">Special: Family Bucket + 2 Large Fries + 2 Drinks — Offer!</marquee></div>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<!-- STATS REMOVED -->
+
+<!-- FEATURE CARDS -->
+<center>
+  <div style="max-width:1100px;margin-top:22px;">
+    <table width="100%" cellpadding="16">
+      <tr>
+        <td class="reveal" style="opacity:0;transform:translateY(18px);transition:all .6s;background:#ffffff;border-radius:10px;padding:14px;">
+          <h3 style="color:#0b6f0b;">Fresh Ingredients</h3>
+          <p style="color:#064f06;">We source local produce and use fresh spices every day.</p>
+        </td>
+        <td class="reveal" style="opacity:0;transform:translateY(18px);transition:all .6s 0.1s;background:#ffffff;border-radius:10px;padding:14px;">
+          <h3 style="color:#0b6f0b;">Signature Sauces</h3>
+          <p style="color:#064f06;">House-made garlic sauce, spicy sauce — loved by customers.</p>
+        </td>
+        <td class="reveal" style="opacity:0;transform:translateY(18px);transition:all .6s 0.2s;background:#ffffff;border-radius:10px;padding:14px;">
+          <h3 style="color:#0b6f0b;">Eco Packaging</h3>
+          <p style="color:#064f06;">We use recyclable boxes and paper to minimize waste.</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+</center>
+
+<!-- MENU HIGHLIGHTS -->
+<center>
+  <div style="max-width:1100px;margin-top:26px;background:#fbfff8;padding:18px;border-radius:12px;">
+    <h2 style="color:#0b6f0b;">Menu Highlights</h2>
+    <table width="100%" cellpadding="8">
+      <tr>
+        <td style="background:#fff;border-radius:10px;padding:12px;">Crispy Chicken (2 pcs) — SR 13</td>
+        <td style="background:#fff;border-radius:10px;padding:12px;">Crispy Chicken (4 pcs) — SR 25</td>
+        <td style="background:#fff;border-radius:10px;padding:12px;">Spicy Crispy — SR 14</td>
+      </tr>
+      <tr>
+        <td style="background:#fff;border-radius:10px;padding:12px;">Family Bucket — SR 65</td>
+        <td style="background:#fff;border-radius:10px;padding:12px;">Sharing Box — SR 120</td>
+        <td style="background:#fff;border-radius:10px;padding:12px;">Chicken Fillet Sandwich — SR 10</td>
+      </tr>
+    </table>
+    <div style="text-align:center;margin-top:12px;">
+      <button onclick="nav('menu.html')" style="padding:12px 20px;border-radius:10px;">See Full Menu</button>
+    </div>
+  </div>
+</center>
+
+<!-- GALLERY -->
+<center>
+  <div style="max-width:1100px;margin-top:28px;">
+    <h2 style="color:#0b6f0b;">Gallery</h2>
+    <marquee scrollamount="4" behavior="scroll" style="padding:10px 0;">
+      <svg width="260" height="140" style="margin:6px;"><rect width="100%" height="100%" rx="10" fill="#e9fff0"/><text x="50%" y="50%" text-anchor="middle" fill="#0b6f0b">Crispy Platter</text></svg>
+      <svg width="260" height="140" style="margin:6px;"><rect width="100%" height="100%" rx="10" fill="#f0fff6"/><text x="50%" y="50%" text-anchor="middle" fill="#0b6f0b">Family Bucket</text></svg>
+      <svg width="260" height="140" style="margin:6px;"><rect width="100%" height="100%" rx="10" fill="#eaffef"/><text x="50%" y="50%" text-anchor="middle" fill="#0b6f0b">Garlic Sauce</text></svg>
+    </marquee>
+  </div>
+</center>
+
+<!-- REVIEWS -->
+<center>
+  <div style="max-width:1100px;margin-top:28px;">
+    <h2 style="color:#0b6f0b;">Customer Reviews</h2>
+    <table width="100%" cellpadding="12">
+      <tr>
+        <td style="background:#fff;border-radius:10px;padding:12px;">"Best crispy chicken!" — Ayesha</td>
+        <td style="background:#fff;border-radius:10px;padding:12px;">"Quick delivery!" — Bilal</td>
+        <td style="background:#fff;border-radius:10px;padding:12px;">"Loved the sauces!" — Sana</td>
+      </tr>
+    </table>
+  </div>
+</center>
+
+<!-- CONTACT PREVIEW -->
+<center>
+  <div style="max-width:1100px;margin-top:28px;display:flex;gap:18px;flex-wrap:wrap;justify-content:center;">
+    <div style="flex:1;min-width:260px;background:#ffffff;padding:14px;border-radius:10px;">
+      <h3 style="color:#0b6f0b;">Contact</h3>
+      <div style="color:#064f06;">Phone: +92 3265447377</div>
+      <div style="color:#064f06;margin-top:8px;">Email: greencafe@gmail.com</div>
+      <div style="margin-top:12px;"><button onclick="nav('contact.html')" style="padding:10px 14px;border-radius:8px;">More Contact Options</button></div>
+    </div>
+  </div>
+</center>
+
+<!-- FOOTER -->
+<footer style="background:#eafef0;padding:26px 12px;margin-top:28px;">
+  <center>
+    <div style="max-width:1100px;text-align:left;">
+      <div style="text-align:center;color:#0a5f0a;">© <script>document.write(new Date().getFullYear());</script> GREEN CAFE — All rights reserved.</div>
+    </div>
+  </center>
+</footer>
+
+</body>
+</html>

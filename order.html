@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="utf-8">
+<title>GREEN CAFE — Order</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+function nav(p){ location.href = p; }
+function toast(msg){ const t=document.getElementById('toast'); t.innerText=msg; t.style.opacity='1'; setTimeout(()=>t.style.opacity='0',1600); }
+
+/* load cart from localStorage */
+function getCart(){ try{ return JSON.parse(localStorage.getItem('gcCart')||'[]'); }catch(e){ return []; } }
+function calc(){
+  const c = getCart();
+  let subtotal = c.reduce((s,i)=> s + i.price * i.qty, 0);
+  const delivery = subtotal > 0 ? 5 : 0;
+  const tax = +(subtotal * 0.06).toFixed(2);
+  const total = +(subtotal + delivery + tax).toFixed(2);
+  return {c, subtotal, delivery, tax, total};
+}
+function renderSummary(){
+  const s = calc();
+  const el = document.getElementById('orderSummary');
+  if(!el) return;
+  if(s.c.length===0){ el.innerHTML = '<em>Your cart is empty. Add items from the menu.</em>'; document.getElementById('grandTotal').innerText='SR 0'; return; }
+  let html = '<table width="100%" cellpadding="6">';
+  s.c.forEach(it=>{
+    html += `<tr><td><b style="color:#0b6f0b;">${it.name}</b><br><small style="color:#066006;">SR ${it.price} × ${it.qty}</small></td><td align="right">SR ${it.price * it.qty}</td></tr>`;
+  });
+  html += `<tr><td>Subtotal</td><td align="right">SR ${s.subtotal}</td></tr>`;
+  html += `<tr><td>Delivery</td><td align="right">SR ${s.delivery}</td></tr>`;
+  html += `<tr><td>Tax (6%)</td><td align="right">SR ${s.tax}</td></tr>`;
+  html += `<tr><td><b>Total</b></td><td align="right"><b>SR ${s.total}</b></td></tr>`;
+  html += '</table>';
+  el.innerHTML = html;
+  document.getElementById('grandTotal').innerText = 'SR ' + s.total;
+}
+
+/* Submit via WhatsApp or Email using form values and cart */
+function sendWhatsAppOrder(){
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const addr = document.getElementById('address').value.trim();
+  if(!name || !phone || !addr){ alert('Please fill name, phone, address'); return; }
+  const s = calc();
+  if(s.c.length === 0){ alert('Cart khaali hai'); return; }
+  let msg = 'New Order%0A';
+  msg += 'Name: ' + name + '%0A';
+  msg += 'Phone: ' + phone + '%0A';
+  msg += 'Address: ' + addr + '%0A';
+  msg += 'Items:%0A';
+  s.c.forEach(it => { msg += `${it.name} × ${it.qty} — SR ${it.price * it.qty}%0A`; });
+  msg += 'Total: SR ' + s.total;
+  const url = 'https://wa.me/923265447377?text=' + msg;
+  window.open(url, '_blank');
+}
+
+function sendEmailOrder(){
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const addr = document.getElementById('address').value.trim();
+  if(!name || !phone || !addr){ alert('Please fill name, phone, address'); return; }
+  const s = calc();
+  if(s.c.length === 0){ alert('Cart khaali hai'); return; }
+  let body = 'Name: ' + name + '\n';
+  body += 'Phone: ' + phone + '\n';
+  body += 'Address: ' + addr + '\n\n';
+  body += 'Items:\n';
+  s.c.forEach(it => { body += `${it.name} × ${it.qty} — SR ${it.price * it.qty}\n`; });
+  body += '\nTotal: SR ' + s.total;
+  window.location.href = 'mailto:g?subject=' + encodeURIComponent('New Order') + '&body=' + encodeURIComponent(body);
+}
+
+/* Clear cart after confirm (optional) */
+function confirmAndClear(){
+  if(confirm('Order submit kar diya? Cart clear karna hai?')){ localStorage.removeItem('gcCart'); renderSummary(); toast('Cart cleared'); }
+}
+
+window.onload = function(){ renderSummary(); }
+</script>
+</head>
+<body bgcolor="#f4fff4" style="font-family:Tahoma, Arial, sans-serif; margin:0;">
+
+<!-- Toast -->
+<div id="toast" style="position:fixed;left:50%;transform:translateX(-50%);bottom:18px;background:#eaffef;padding:8px 12px;border-radius:18px;color:#045204;opacity:0;transition:opacity .3s;z-index:9999;"></div>
+
+<!-- Header -->
+<center>
+<table width="100%" cellpadding="14" bgcolor="#dbffe1" style="position:sticky;top:0;z-index:999;">
+  <tr>
+    <td align="left" style="padding-left:22px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <svg width="36" height="36"><path d="M19 2 C10 8,5 15,7 23 C9 31,16 35,23 32 C30 28,34 20,32 13 C30 6,24 2,19 2 Z" fill="#16a34a" stroke="#0f7a32"/></svg>
+        <div style="font-size:28px;font-weight:700;color:#0b6f0b;">GREEN CAFE</div>
+      </div>
+    </td>
+    <td align="right" style="padding-right:22px;">
+      <button onclick="nav('index.html')" style="padding:8px 12px;border-radius:10px;margin:6px;">Home</button>
+      <button onclick="nav('menu.html')" style="padding:8px 12px;border-radius:10px;margin:6px;">Menu</button>
+      <button onclick="nav('order.html')" style="padding:8px 12px;border-radius:10px;margin:6px;box-shadow:0 0 12px #7aff9c;">Order</button>
+      <button onclick="nav('contact.html')" style="padding:8px 12px;border-radius:10px;margin:6px;">Contact</button>
+    </td>
+  </tr>
+</table>
+</center>
+
+<center style="margin-top:18px;">
+  <h1 style="color:#0b6f0b;font-size:38px;">Checkout & Place Order</h1>
+  <div style="color:#064f06;margin-bottom:12px;">Review your items, fill your details and send order via WhatsApp or Email</div>
+</center>
+
+<!-- Main content -->
+<center>
+  <table width="94%" cellpadding="12" style="max-width:1100px;">
+    <tr valign="top">
+      <td width="60%" style="background:#ffffff;border-radius:12px;padding:16px;">
+        <h3 style="color:#0b6f0b;">Customer Details</h3>
+        <label style="color:#064f06;">Full Name</label><br>
+        <input id="name" type="text" style="width:100%;padding:12px;border-radius:8px;margin-top:6px;"><br><br>
+        <label style="color:#064f06;">Phone</label><br>
+        <input id="phone" type="text" placeholder="0300-xxxxxxx" style="width:100%;padding:12px;border-radius:8px;margin-top:6px;"><br><br>
+        <label style="color:#064f06;">Delivery Address</label><br>
+        <textarea id="address" rows="4" style="width:100%;padding:12px;border-radius:8px;margin-top:6px;"></textarea>
+        <br><br>
+        <label style="color:#064f06;">Special Instructions (optional)</label><br>
+        <textarea id="note" rows="2" style="width:100%;padding:12px;border-radius:8px;margin-top:6px;"></textarea>
+        <div style="margin-top:14px;text-align:right;">
+          <button onclick="sendWhatsAppOrder()" style="padding:12px 18px;border-radius:10px;background:#0ab24a;color:#fff;border:0;font-size:16px;">Send Order on WhatsApp</button>
+          <button onclick="sendEmailOrder()" style="padding:12px 18px;border-radius:10px;margin-left:8px;font-size:16px;">Send Order by Email</button>
+        </div>
+      </td>
+
+      <td width="40%" style="background:#fbfff8;border-radius:12px;padding:16px;">
+        <h3 style="color:#0b6f0b;">Order Summary</h3>
+        <div id="orderSummary" style="color:#064f06;min-height:160px;"></div>
+        <hr>
+        <div style="text-align:right;font-size:18px;color:#0b6f0b;">Total: <b id="grandTotal">SR 0</b></div>
+        <div style="margin-top:12px;color:#064f06;">Questions? Call: +92 93265447377</div>
+        <div style="margin-top:12px;text-align:center;">
+          <button onclick="confirmAndClear()" style="padding:8px 12px;border-radius:8px;">Clear Cart</button>
+        </div>
+      </td>
+    </tr>
+  </table>
+</center>
+
+<!-- Footer -->
+<center style="margin-top:22px;">
+  <small style="color:#0a5f0a;">© <script>document.write(new Date().getFullYear());</script> GREEN CAFE</small>
+</center>
+
+<script> try{ renderSummary(); }catch(e){} </script>
+</body>
+</html>
